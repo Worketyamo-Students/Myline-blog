@@ -6,8 +6,8 @@ const routes = {
     GET_ALL_ARTICLES: '/articles',
     CREATE_ARTICLE: '/article',
     CREATE_ARTICLES: '/articles',
-    UPDATE_ARTICLE: '/article',
-    DELETE_ARTICLE: '/article',
+    UPDATE_ARTICLE: '/article/:id',
+    DELETE_ARTICLE: '/article/:id'
 }
 
 const blog = Router();
