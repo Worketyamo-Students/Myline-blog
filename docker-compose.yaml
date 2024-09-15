@@ -1,25 +1,13 @@
+
 services:
-  app:
-    build: .
-    ports:
-      - '4000:3000'
-    env_file:
-      - ./.env
-    depends_on:
-      - mongo
-    develop:
-      watch:
-        - path: ./
-          action: rebuild
 
-  mongo:
-    image: mongo:latest
+  db:
+    image: postgres:alpine
+    restart: always
     ports:
-      - '27017:27017'
-    env_file:
-      - ./.env
-    volumes:
-      - mongo-data:/data/db
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: password123
+      POSTGRES_USER : Myline
+      POSTGRES_DB : blog
 
-volumes:
-  mongo-data:

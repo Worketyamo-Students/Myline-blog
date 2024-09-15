@@ -34,6 +34,7 @@
     "typescript-eslint": "^7.13.1"
   },
   "dependencies": {
+    "@prisma/client": "^5.19.1",
     "@types/morgan": "^1.9.9",
     "compression": "^1.7.4",
     "dotenv": "^16.4.5",
