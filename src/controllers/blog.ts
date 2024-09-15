@@ -51,6 +51,28 @@ const blogControllers = {
         }
     },
 
+
+    createManyArticles: async (req: Request, res: Response) => {
+        try {
+            const { title, content } = req.body
+
+            const articles = await prisma.post.createMany({
+                data: {
+                    title,
+                    content
+                },
+            })
+            if (articles)
+                res.status(HttpCode.CREATED).json(articles)
+            else
+                res.status(HttpCode.BAD_REQUEST).json({ msg: "articles could not be created !" })
+        }
+        catch (error) {
+            console.error(error)
+        }
+    },
+
+
 }
 
 export default blogControllers
