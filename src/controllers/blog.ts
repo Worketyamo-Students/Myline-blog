@@ -31,6 +31,25 @@ const blogControllers = {
         }
     },
 
+    createArticle: async (req: Request, res: Response) => {
+        try {
+            const { title, content } = req.body
+
+            const article = await prisma.post.create({
+                data: {
+                    title,
+                    content
+                },
+            })
+            if (article)
+                res.status(HttpCode.CREATED).json(article)
+            else
+                res.status(HttpCode.BAD_REQUEST).json({ msg: "article could not be created !" })
+        }
+        catch (error) {
+            console.error(error)
+        }
+    },
 
 }
 
