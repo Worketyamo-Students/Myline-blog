@@ -17,7 +17,20 @@ const blogControllers = {
         catch (error) {
             console.error(error)
         }
-    }
+    },
+
+    getAllArticles: async (req: Request, res: Response) => {
+        try {
+            const articles = await prisma.post.findMany()
+
+            res.status(HttpCode.OK).send({ msg: articles })
+        }
+
+        catch (error) {
+            console.error(error)
+        }
+    },
+
 
 }
 
