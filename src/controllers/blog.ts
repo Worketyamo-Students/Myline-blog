@@ -96,7 +96,23 @@ const blogControllers = {
         }
     },
 
+    deleteArticle: async (req: Request, res: Response) => {
+        try {
+            const { id } = req.params
 
+            const deleteUser = await prisma.post.delete({
+                where: {
+                    id
+                },
+            })
+            if (!deleteUser)
+                return res.status(HttpCode.NOT_FOUND).json({ msg: "not deleted" })
+            return res.status(HttpCode.OK).json({ msg: "successfully deleted" })
+        }
+        catch (error) {
+            console.error(error)
+        }
+    }
 
 }
 
