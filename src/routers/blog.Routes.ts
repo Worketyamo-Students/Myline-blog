@@ -11,5 +11,6 @@ const blog = Router();
 
 blog.get(routes.GET_ONE_ARTICLE, blogControllers.getOneArticle)
 blog.get(routes.GET_ALL_ARTICLES, blogControllers.getAllArticles)
+blog.post(routes.CREATE_ARTICLE, blogControllers.createArticle)
 
 export default blog
