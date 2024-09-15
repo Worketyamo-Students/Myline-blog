@@ -6,6 +6,8 @@ const routes = {
     GET_ALL_ARTICLES: '/articles',
     CREATE_ARTICLE: '/article',
     CREATE_ARTICLES: '/articles',
+    UPDATE_ARTICLE: '/article',
+    DELETE_ARTICLE: '/article',
 }
 
 const blog = Router();
@@ -14,5 +16,6 @@ blog.get(routes.GET_ONE_ARTICLE, blogControllers.getOneArticle)
 blog.get(routes.GET_ALL_ARTICLES, blogControllers.getAllArticles)
 blog.post(routes.CREATE_ARTICLE, blogControllers.createArticle)
 blog.post(routes.CREATE_ARTICLES, blogControllers.createManyArticles)
+blog.put(routes.UPDATE_ARTICLE, blogControllers.updateArticle)
 
 export default blog
