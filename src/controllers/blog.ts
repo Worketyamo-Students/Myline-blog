@@ -72,6 +72,31 @@ const blogControllers = {
         }
     },
 
+    updateArticle: async (req: Request, res: Response) => {
+        try {
+            const { id } = req.params
+            const { title, content } = req.body
+
+
+            const updateArticle = await prisma.post.update({
+                where: {
+                    id
+                },
+                data: {
+                    title,
+                    content
+                }
+            })
+            if (!updateArticle)
+                return res.status(HttpCode.BAD_REQUEST).json({ msg: "nothing changed" })
+            res.status(HttpCode.OK).json(updateArticle)
+        }
+        catch (error) {
+            console.error(error)
+        }
+    },
+
+
 
 }
 
